@@ -1,0 +1,52 @@
+.our-row input {
+  width: 15rem;
+}
+.our-row {
+  gap: 3px;
+}
+.column-conatiner {
+  gap: 3px;
+}
+.var-input {
+  width: 30rem !important;
+}
+.output {
+  grid-column: span 4;
+  height: 80px;
+  width: 90%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: space-around;
+  word-wrap: break-word;
+  word-break: break-all;
+  border-radius: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 12px;
+  border: none;
+  background: var(--backcolor);
+  box-shadow: inset -5px -5px 12px #ffffff,
+    inset 5px 5px 12px rgba(0, 0, 0, 0.16);
+  color: black;
+  outline: none;
+  padding: 10px;
+  font-family: cursive;
+  font-size: 1.5em;
+  overflow: hidden;
+  pointer-events: none;
+}
+.container {
+  position: absolute;
+  height: auto;
+  max-width: 50%;
+  min-width: 50%;
+  border-radius: 20px;
+  background: var(--backcolor);
+  box-shadow: inset 5px 5px 12px #ffffff, 5px 5px 12px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-content: center;
+  grid-row-gap: 5px;
+}

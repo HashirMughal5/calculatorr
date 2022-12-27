@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script src="https://unpkg.com/mathjs@11.5.0/lib/browser/math.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body{
+        background-color: #010716;
+      }
+      .form-control{
+
+                border-radius: 40px;
+                border-color: #03050a;
+
+      }
+      h1{
+        color: aliceblue;
+      }
+      .form-label {
+        color: aliceblue;
+        font-weight: bold;
+        font-size: 30px;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        overflow: hidden;
+        border-top: 4px solid #060f23;
+
+        list-style: none;
+      }
+      .screen {
+        list-style: none;
+        color: white;
+                color: aliceblue;
+
+        height: 50px;
+        border-radius: 30px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        width: 750px;
+        background: #03050a;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+      <div
+        class="d-flex flex-column col-8 justify-content-center column-conatiner align-items-center"
+      >
+        <div class="col-10">
+          <div class="mb-2">
+            <label class="form-label">Input Screen</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              id="result"
+              onfocus=""
+              onfocusout=""
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted"></small>
+          </div>
+        </div>
+        <div class="col-10">
+          <h1>Output Screen</h1>
+          <div class="screen" id="screen"></div>
+        </div>
+        <div class="col-10">
+          <div class="d-flex justify-content-center align-items-center our-row">
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('(')"
+              value="("
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis(')')"
+              value=")"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('sqrt')"
+              value="sqrt"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('pi')"
+              value="pi"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('^')"
+              value="^"
+            />
+          </div>
+        </div>
+        <div class="col-10">
+          <div class="d-flex justify-content-center align-items-center our-row">
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('sin')"
+              value="sin"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('cos')"
+              value="cos"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('tan')"
+              value="tan"
+            />
+            <button
+              type="button"
+              id="history"
+              class="btn btn-dark var-input"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal2"
+              onclick="showHistory()"
+            >
+              History
+            </button>
+            
+          </div>
+        </div>
+        <div class="col-10">
+          <div class="d-flex justify-content-center align-items-center our-row">
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('7')"
+              value="7"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('8')"
+              value="8"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('9')"
+              value="9"
+            />
+
+            <input
+              name=""
+              id=""
+              class="btn btn-danger"
+              type="button"
+              onclick="clr()"
+              value="AC"
+            />
+          </div>
+        </div>
+        <div class="col-10">
+          <div class="d-flex justify-content-center align-items-center our-row">
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('4')"
+              value="4"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('5')"
+              value="5"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('6')"
+              value="6"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('*')"
+              value="*"
+            />
+            <input
+              name=""
+                id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('/')"
+              value="/"
+            />
+          </div>
+        </div>
+        <div class="col-10">
+          <div class="d-flex justify-content-center align-items-center our-row">
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('1')"
+              value="1"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('2')"
+              value="2"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('3')"
+              value="3"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('+')"
+              value="+"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('-')"
+              value="-"
+            />
+          </div>
+        </div>
+        <div class="col-10">
+          <div class="d-flex justify-content-center align-items-center our-row">
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('0')"
+              value="0"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('.')"
+              value="."
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark"
+              type="button"
+              onclick="dis('e')"
+              value="e"
+            />
+            <input
+              name=""
+              id=""
+              class="btn btn-dark var-input"
+              type="button"
+              onclick="solve()"
+              value="="
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Variable</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label"
+                  >Variable Name</label
+                >
+                <input
+                  type="text"
+                  required
+                  class="form-control"
+                  id="var-name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label"
+                  >Variable Value</label
+                >
+                <input type="text" required class="form-control" id="var-val" />
+              </div>
+            </div> -->
+            <!-- <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="addVariable()"
+              >
+                Add Variable
+              </button>
+            </div> -->
+          <!-- </div>
+        </div>
+      </div> -->
+
+      <div
+        class="modal fade"
+        id="exampleModal2"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="table-responsive">
+                <table class="table table-primary">
+                  <thead>
+                    <tr>
+                      <th scope="col">Expression</th>
+                      <th scope="col">Result</th>
+
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody id="history-table"></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/expr-eval/2.0.2/bundle.min.js"
+      integrity="sha512-TNliDPFdpL1W1sP7v9WzHUxTAY+PN7wRiHqJzntb4HpaJ0HlreSm0tzbA8MU7EBEoPTYgEtB+ZpbBB2yQQu49g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/expr-eval/2.0.2/bundle.js"
+      integrity="sha512-s/qEG0+sFNWo3OZ1KJ0+vEx3Do9CNWPE0tcHyaPEcxkbt4VecrIDWKQzXJeD5KgD+ZP4ct2NcN4g/dKludipKg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
